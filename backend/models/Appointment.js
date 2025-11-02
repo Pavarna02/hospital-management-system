@@ -34,4 +34,7 @@ const appointmentSchema = new mongoose.Schema({
   }
 });
 
+// Remove any unique index on receiptNumber
+appointmentSchema.index({ receiptNumber: 1 }, { unique: false, sparse: true });
+
 module.exports = mongoose.model('Appointment', appointmentSchema);
